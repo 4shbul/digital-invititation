@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan — Ratna &amp; Bagas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Yesteryear&family=Special+Elite&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- film-grain / aged paper overlay -->
+<svg width="0" height="0" style="position:absolute;">
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+    <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+  </filter>
+</svg>
+<div class="grain-overlay"></div>
+<div class="vignette"></div>
+
+<!-- ============ COVER / ENVELOPE ============ -->
+<div id="cover">
+  <div class="postmark">
+    <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="44"/></svg>
+    <span class="postmark-text">MAKASSAR · 2026</span>
+  </div>
+  <div class="cover-card">
+    <div class="corner tl"></div><div class="corner tr"></div>
+    <div class="corner bl"></div><div class="corner br"></div>
+    <div class="cover-sunburst" aria-hidden="true"></div>
+    <div class="eyebrow ribbon">The Wedding Of</div>
+    <div class="cover-names">Ratna <span>&amp;</span> Bagas</div>
+    <div class="eyebrow" style="opacity:.85;">Sabtu, 14 November 2026</div>
+    <div class="cover-to">
+      Kepada Yth. Bapak/Ibu/Saudara/i
+      <b id="guestName">Tamu Undangan</b>
+    </div>
+    <button class="seal-btn" id="openBtn"><span>✦</span> Buka Undangan <span>✦</span></button>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section id="hero">
+  <div class="container reveal">
+    <div class="sunrays" aria-hidden="true"></div>
+    <div class="hero-ring">R&amp;B</div>
+    <div class="eyebrow">Bersama Keluarga Kami Mengundang</div>
+    <h1 class="hero-title">Ratna <span class="hero-amp">&amp;</span> Bagas</h1>
+    <div class="divider"><span class="dash"></span><span class="mark">❦</span><span class="dash"></span></div>
+    <div class="hero-date">SABTU · 14 NOVEMBER 2026</div>
+
+    <div id="countdown">
+      <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Hari</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Jam</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Menit</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Detik</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ QUOTE ============ -->
+<section id="quote">
+  <div class="container reveal">
+    <p><span class="dropcap">D</span>an di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup agar kamu merasa tenteram, dan dijadikan-Nya di antaramu rasa kasih dan sayang.</p>
+    <div class="src">— QS. AR-RUM : 21</div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ COUPLE ============ -->
+<section id="couple">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Mempelai</div>
+      <h2>Kedua Mempelai</h2>
+    </div>
+    <div class="couple-grid">
+      <div class="person">
+        <div class="locket"><span>R</span></div>
+        <h3>Ratna Kusuma, S.E.</h3>
+        <div class="role">Mempelai Wanita</div>
+        <p>Putri kedua dari<br>Bapak Slamet Wijaya &amp;<br>Ibu Sri Handayani</p>
+      </div>
+      <div class="couple-and">&amp;</div>
+      <div class="person">
+        <div class="locket"><span>B</span></div>
+        <h3>Bagas Aditya, S.T.</h3>
+        <div class="role">Mempelai Pria</div>
+        <p>Putra pertama dari<br>Bapak Herman Susanto &amp;<br>Ibu Wulandari</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ EVENTS ============ -->
+<section id="events">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Save The Date</div>
+      <h2>Rangkaian Acara</h2>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-stamp">✦</div>
+      <div class="ticket-top"><h3>Akad Nikah</h3><span>TIKET NO. 01</span></div>
+      <div class="ticket-row"><span class="ico">✦</span> Sabtu, 14 November 2026</div>
+      <div class="ticket-row"><span class="ico">⏱</span> Pukul 08.00 — 10.00 WIB</div>
+      <div class="ticket-row"><span class="ico">✎</span> Kediaman Mempelai Wanita, Jl. Melati No. 12, Makassar</div>
+      <div class="ticket-actions">
+        <a class="btn solid" id="cal-akad" href="#">+ Tambah ke Kalender</a>
+        <a class="btn" href="https://www.google.com/maps?q=Makassar" target="_blank" rel="noopener">Buka Peta</a>
+      </div>
+      <div class="mapwrap"><iframe loading="lazy" src="https://www.google.com/maps?q=Makassar&output=embed"></iframe></div>
+    </div>
+
+    <div class="ticket">
+      <div class="ticket-stamp">✦</div>
+      <div class="ticket-top"><h3>Resepsi</h3><span>TIKET NO. 02</span></div>
+      <div class="ticket-row"><span class="ico">✦</span> Sabtu, 14 November 2026</div>
+      <div class="ticket-row"><span class="ico">⏱</span> Pukul 11.00 — 14.00 WIB</div>
+      <div class="ticket-row"><span class="ico">✎</span> Gedung Serbaguna Anggrek, Jl. Sudirman No. 88, Makassar</div>
+      <div class="ticket-actions">
+        <a class="btn solid" id="cal-resepsi" href="#">+ Tambah ke Kalender</a>
+        <a class="btn" href="https://www.google.com/maps?q=Makassar" target="_blank" rel="noopener">Buka Peta</a>
+      </div>
+      <div class="mapwrap"><iframe loading="lazy" src="https://www.google.com/maps?q=Makassar&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ LOVE STORY ============ -->
+<section id="story">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Perjalanan Kami</div>
+      <h2>Kisah Cinta</h2>
+    </div>
+    <div id="story-list"></div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Kenangan</div>
+      <h2>Galeri Foto</h2>
+    </div>
+    <div class="gallery" id="galleryGrid"></div>
+    <p class="hint">Ganti kotak di atas dengan foto favorit kalian berdua ✦</p>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ GIFT ============ -->
+<section id="gift">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Tanda Kasih</div>
+      <h2>Amplop Digital</h2>
+      <p class="hint">Doa restu Anda adalah karunia yang berarti bagi kami. Namun jika ingin memberi tanda kasih, kami menyediakan kanal berikut.</p>
+    </div>
+
+    <div class="gift-card">
+      <div class="gift-stamp">✎</div>
+      <h3>Transfer Bank</h3>
+      <div class="acc">BCA — 1234567890</div>
+      <div class="sub">a.n. Ratna Kusuma</div>
+      <button class="btn copy-btn" data-copy="1234567890">Salin Nomor Rekening</button>
+    </div>
+    <div class="gift-card">
+      <div class="gift-stamp">✎</div>
+      <h3>Transfer Bank</h3>
+      <div class="acc">Mandiri — 0987654321</div>
+      <div class="sub">a.n. Bagas Aditya</div>
+      <button class="btn copy-btn" data-copy="0987654321">Salin Nomor Rekening</button>
+    </div>
+    <div class="gift-card">
+      <div class="gift-stamp">✦</div>
+      <h3>Kirim Hadiah</h3>
+      <p class="sub">Jl. Melati No. 12, Kec. Panakkukang, Makassar, Sulawesi Selatan 90231</p>
+    </div>
+  </div>
+</section>
+
+<div class="torn-divider" aria-hidden="true"></div>
+
+<!-- ============ RSVP ============ -->
+<section id="rsvp">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Konfirmasi Kehadiran</div>
+      <h2>RSVP</h2>
+    </div>
+    <div class="frame">
+      <form class="rsvp" id="rsvpForm">
+        <div class="field">
+          <label for="r-name">Nama Anda</label>
+          <input type="text" id="r-name" required placeholder="Tulis nama lengkap">
+        </div>
+        <div class="field">
+          <label for="r-status">Konfirmasi Kehadiran</label>
+          <select id="r-status">
+            <option value="Hadir">Insya Allah Hadir</option>
+            <option value="Tidak Hadir">Belum Bisa Hadir</option>
+            <option value="Ragu">Masih Ragu</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-count">Jumlah Tamu</label>
+          <select id="r-count">
+            <option>1</option><option>2</option><option>3</option><option>4</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="r-msg">Ucapan &amp; Doa</label>
+          <textarea id="r-msg" placeholder="Tuliskan ucapan dan doa restu untuk kedua mempelai..."></textarea>
+        </div>
+        <button type="submit" class="btn solid">Kirim Konfirmasi</button>
+        <div id="rsvp-msg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WISHES ============ -->
+<section id="wishes">
+  <div class="container reveal">
+    <div class="section-head">
+      <div class="eyebrow ribbon">Buku Tamu</div>
+      <h2>Ucapan &amp; Doa</h2>
+    </div>
+    <p class="hint center">Ucapan yang dikirim lewat RSVP akan tampil di sini dan dapat dilihat tamu lain.</p>
+    <div id="wishlist"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-flourish" aria-hidden="true">❦</div>
+  <div class="script">Terima Kasih</div>
+  <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami<br>apabila Bapak/Ibu/Saudara/i berkenan hadir<br>untuk memberikan doa restu.</p>
+  <div class="divider"><span class="dash"></span><span class="mark">✦</span><span class="dash"></span></div>
+  <p class="signoff">Ratna &amp; Bagas</p>
+</footer>
+
+<div id="music-toggle" title="Putar musik latar">
+  <div class="vinyl"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
