@@ -1,199 +1,191 @@
-/* ============ CONFIG — ganti sesuai data kalian ============ */
 const CONFIG = {
-  weddingDateISO: "2026-11-14T08:00:00+08:00",
-  akad:    { title: "Akad Nikah — Ratna & Bagas", start:"20261114T000000Z", end:"20261114T020000Z", location:"Jl. Melati No. 12, Makassar" },
-  resepsi: { title: "Resepsi Pernikahan — Ratna & Bagas", start:"20261114T030000Z", end:"20261114T060000Z", location:"Gedung Serbaguna Anggrek, Makassar" },
-  story: [
-    { year:"2019", title:"Pertama Bertemu", text:"Dipertemukan dalam satu forum organisasi kampus, obrolan singkat itu ternyata berlanjut jadi pertemuan-pertemuan berikutnya." },
-    { year:"2021", title:"Mulai Dekat", text:"Dari teman diskusi jadi teman jalan. Perlahan kami sadar ingin melewati lebih banyak hal bersama." },
-    { year:"2023", title:"Lamaran", text:"Direstui kedua keluarga, janji untuk melangkah ke jenjang yang lebih serius resmi terucap." },
-    { year:"2026", title:"Hari Bahagia", text:"Dan hari yang dinanti itu pun tiba — kami mengundang Anda untuk menjadi saksi." }
-  ],
-  galleryCount: 6
+  weddingDateISO: "2026-08-06T00:00:00+08:00",
+  akad: {
+    title: "Akad Nikah — Achmad & Suci",
+    start: "20260806",
+    end: "20260807",
+    location: "Balai Kartini, Kabupaten Bantaeng",
+    details: "Akad nikah Achmad Amzal Maulana, S.H.Int., M.I.P dan Suci Ainun A. Said, S.Pi. Waktu pelaksanaan akan diinformasikan kemudian."
+  },
+  resepsi: {
+    title: "Resepsi Pernikahan — Achmad & Suci",
+    start: "20260808",
+    end: "20260809",
+    location: "Four Point by Sheraton Hotel, Kota Makassar",
+    details: "Resepsi pernikahan Achmad Amzal Maulana, S.H.Int., M.I.P dan Suci Ainun A. Said, S.Pi. Waktu pelaksanaan akan diinformasikan kemudian."
+  }
 };
 
-/* ============ Guest name from URL (?to=Nama) ============ */
 const params = new URLSearchParams(window.location.search);
-const guest = params.get('to');
-if(guest){ document.getElementById('guestName').textContent = decodeURIComponent(guest); }
+const guest = params.get("to");
+if (guest) {
+  document.getElementById("guestName").textContent = guest.trim() || "Tamu Undangan";
+}
 
-/* ============ Cover open ============ */
-document.body.style.overflow = 'hidden';
-document.getElementById('openBtn').addEventListener('click', () => {
-  document.getElementById('cover').classList.add('open');
-  document.body.style.overflow = 'auto';
+const cover = document.getElementById("cover");
+const openButton = document.getElementById("openBtn");
+document.body.style.overflow = "hidden";
+openButton.addEventListener("click", () => {
+  cover.classList.add("open");
+  document.body.style.overflow = "auto";
+  window.setTimeout(() => document.getElementById("hero").scrollIntoView(), 450);
 });
 
-/* ============ Countdown ============ */
-function updateCountdown(){
+function updateCountdown() {
   const target = new Date(CONFIG.weddingDateISO).getTime();
   const now = Date.now();
-  let diff = Math.max(0, target - now);
-  const d = Math.floor(diff / (1000*60*60*24));
-  const h = Math.floor((diff / (1000*60*60)) % 24);
-  const m = Math.floor((diff / (1000*60)) % 60);
-  const s = Math.floor((diff / 1000) % 60);
-  document.getElementById('cd-d').textContent = String(d).padStart(2,'0');
-  document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
-  document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
-  document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  const diff = Math.max(0, target - now);
+  const days = Math.floor(diff / 86400000);
+  const hours = Math.floor((diff / 3600000) % 24);
+  const minutes = Math.floor((diff / 60000) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  document.getElementById("cd-d").textContent = String(days).padStart(2, "0");
+  document.getElementById("cd-h").textContent = String(hours).padStart(2, "0");
+  document.getElementById("cd-m").textContent = String(minutes).padStart(2, "0");
+  document.getElementById("cd-s").textContent = String(seconds).padStart(2, "0");
 }
 updateCountdown();
-setInterval(updateCountdown, 1000);
+window.setInterval(updateCountdown, 1000);
 
-/* ============ Add to calendar links ============ */
-function gcalLink(ev){
+function googleCalendarLink(event) {
   const base = "https://calendar.google.com/calendar/render?action=TEMPLATE";
-  return `${base}&text=${encodeURIComponent(ev.title)}&dates=${ev.start}/${ev.end}&location=${encodeURIComponent(ev.location)}`;
-}
-document.getElementById('cal-akad').href = gcalLink(CONFIG.akad);
-document.getElementById('cal-resepsi').href = gcalLink(CONFIG.resepsi);
-
-/* ============ Love story render ============ */
-const storyList = document.getElementById('story-list');
-CONFIG.story.forEach((item, i) => {
-  const el = document.createElement('div');
-  el.className = 'story-item';
-  el.innerHTML = `
-    <div class="story-dot">${i+1}<div class="story-line"></div></div>
-    <div class="story-text">
-      <div class="yr">${item.year}</div>
-      <h3>${item.title}</h3>
-      <p>${item.text}</p>
-    </div>`;
-  storyList.appendChild(el);
-});
-
-/* ============ Gallery placeholders ============ */
-const grid = document.getElementById('galleryGrid');
-const symbols = ['✦','❦','✿','☙','✦','❧'];
-for(let i=0;i<CONFIG.galleryCount;i++){
-  const c = document.createElement('div');
-  c.className = 'gcell';
-  c.textContent = symbols[i % symbols.length];
-  grid.appendChild(c);
-}
-
-/* ============ Copy account number ============ */
-document.querySelectorAll('.copy-btn').forEach(btn => {
-  btn.addEventListener('click', async () => {
-    const val = btn.getAttribute('data-copy');
-    try{
-      await navigator.clipboard.writeText(val);
-      const old = btn.textContent;
-      btn.textContent = 'Tersalin ✓';
-      setTimeout(()=> btn.textContent = old, 1800);
-    }catch(e){
-      alert('Nomor rekening: ' + val);
-    }
+  const query = new URLSearchParams({
+    text: event.title,
+    dates: `${event.start}/${event.end}`,
+    location: event.location,
+    details: event.details,
+    ctz: "Asia/Makassar"
   });
-});
+  return `${base}&${query.toString()}`;
+}
+document.getElementById("cal-akad").href = googleCalendarLink(CONFIG.akad);
+document.getElementById("cal-resepsi").href = googleCalendarLink(CONFIG.resepsi);
 
-/* ============ Scroll reveal ============ */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); } });
-}, {threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) entry.target.classList.add("in");
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
-/* ============ RSVP + Wishes via persistent storage ============ */
-const wishlistEl = document.getElementById('wishlist');
+const STORAGE_KEY = "achmad-suci-wishes";
+const wishlist = document.getElementById("wishlist");
+const rsvpForm = document.getElementById("rsvpForm");
+const rsvpMessage = document.getElementById("rsvp-msg");
+const clearWishes = document.getElementById("clearWishes");
 
-async function loadWishes(){
-  wishlistEl.innerHTML = '<p style="text-align:center;font-size:0.8rem;color:var(--ink-soft);">Memuat ucapan...</p>';
-  try{
-    const list = await window.storage.list('wish:', true);
-    if(!list || !list.keys || list.keys.length === 0){
-      wishlistEl.innerHTML = '<p style="text-align:center;font-size:0.85rem;color:var(--ink-soft);">Jadilah yang pertama mengirim ucapan ✦</p>';
-      return;
-    }
-    const items = [];
-    for(const k of list.keys){
-      try{
-        const res = await window.storage.get(k, true);
-        if(res && res.value) items.push(JSON.parse(res.value));
-      }catch(e){ /* skip missing */ }
-    }
-    items.sort((a,b)=> (b.ts||0) - (a.ts||0));
-    wishlistEl.innerHTML = '';
-    items.forEach(w => {
-      const div = document.createElement('div');
-      div.className = 'wish';
-      div.innerHTML = `<span class="who">${escapeHtml(w.name)}</span><span class="status">${escapeHtml(w.status)}</span><p>${escapeHtml(w.message || '(tanpa pesan)')}</p>`;
-      wishlistEl.appendChild(div);
-    });
-  }catch(e){
-    wishlistEl.innerHTML = '<p style="text-align:center;font-size:0.8rem;color:var(--ink-soft);">Buku tamu belum tersedia saat ini.</p>';
+function escapeHtml(value) {
+  const element = document.createElement("div");
+  element.textContent = String(value ?? "");
+  return element.innerHTML;
+}
+
+function getWishes() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(saved) ? saved : [];
+  } catch {
+    return [];
   }
 }
-function escapeHtml(str){
-  const d = document.createElement('div');
-  d.textContent = str;
-  return d.innerHTML;
+
+function saveWishes(wishes) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(wishes));
 }
-loadWishes();
 
-document.getElementById('rsvpForm').addEventListener('submit', async (e)=>{
-  e.preventDefault();
-  const name = document.getElementById('r-name').value.trim();
-  const status = document.getElementById('r-status').value;
-  const count = document.getElementById('r-count').value;
-  const message = document.getElementById('r-msg').value.trim();
-  const msgEl = document.getElementById('rsvp-msg');
-  if(!name){ msgEl.textContent = 'Mohon isi nama terlebih dahulu.'; return; }
-
-  const entry = { name, status, count, message, ts: Date.now() };
-  const key = 'wish:' + Date.now() + '-' + Math.random().toString(36).slice(2,8);
-  msgEl.textContent = 'Mengirim...';
-  try{
-    const result = await window.storage.set(key, JSON.stringify(entry), true);
-    if(result){
-      msgEl.textContent = 'Terima kasih! Konfirmasi Anda telah kami terima ✦';
-      document.getElementById('rsvpForm').reset();
-      loadWishes();
-    }else{
-      msgEl.textContent = 'Gagal mengirim, silakan coba lagi.';
-    }
-  }catch(err){
-    msgEl.textContent = 'Gagal mengirim, silakan coba lagi.';
+function renderWishes() {
+  const wishes = getWishes();
+  if (!wishes.length) {
+    wishlist.innerHTML = '<p class="empty-wishes">Jadilah yang pertama mengirim ucapan dan doa ✦</p>';
+    clearWishes.hidden = true;
+    return;
   }
+  clearWishes.hidden = false;
+  wishlist.innerHTML = wishes.map((wish) => `
+    <article class="wish">
+      <div class="wish-head">
+        <span class="who">${escapeHtml(wish.name)}</span>
+        <span class="status">${escapeHtml(wish.status)}</span>
+      </div>
+      <div class="event">${escapeHtml(wish.event)}</div>
+      <p>${escapeHtml(wish.message || "Semoga menjadi keluarga yang sakinah, mawaddah, warahmah.")}</p>
+    </article>
+  `).join("");
+}
+
+rsvpForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(rsvpForm);
+  const entry = {
+    name: String(data.get("name") || "").trim(),
+    event: String(data.get("event") || "Keduanya"),
+    status: String(data.get("status") || "Hadir"),
+    message: String(data.get("message") || "").trim(),
+    createdAt: Date.now()
+  };
+  if (!entry.name) {
+    rsvpMessage.textContent = "Mohon isi nama terlebih dahulu.";
+    return;
+  }
+  const wishes = getWishes();
+  wishes.unshift(entry);
+  saveWishes(wishes.slice(0, 50));
+  renderWishes();
+  rsvpForm.reset();
+  rsvpMessage.textContent = "Terima kasih. Konfirmasi dan ucapan Anda telah tersimpan pada perangkat ini ✦";
 });
 
-/* ============ Ambient "vinyl" background music (generative, no external file) ============ */
-let audioCtx, playing = false, nodes = [];
-document.getElementById('music-toggle').addEventListener('click', () => {
-  if(!audioCtx){ audioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
-  const btn = document.getElementById('music-toggle');
-  if(!playing){
+clearWishes.addEventListener("click", () => {
+  const confirmed = window.confirm("Hapus seluruh ucapan yang tersimpan pada perangkat ini?");
+  if (!confirmed) return;
+  localStorage.removeItem(STORAGE_KEY);
+  renderWishes();
+  rsvpMessage.textContent = "Daftar ucapan pada perangkat ini telah dibersihkan.";
+});
+renderWishes();
+
+let audioContext;
+let playing = false;
+let audioNodes = [];
+const musicButton = document.getElementById("music-toggle");
+
+function startAmbient() {
+  audioContext = audioContext || new (window.AudioContext || window.webkitAudioContext)();
+  const master = audioContext.createGain();
+  master.gain.setValueAtTime(0.035, audioContext.currentTime);
+  master.connect(audioContext.destination);
+  [220, 277.18, 329.63].forEach((frequency, index) => {
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.value = frequency;
+    gain.gain.setValueAtTime(0, audioContext.currentTime);
+    gain.gain.linearRampToValueAtTime(0.17, audioContext.currentTime + 1.2 + index * 0.25);
+    oscillator.connect(gain);
+    gain.connect(master);
+    oscillator.start();
+    audioNodes.push({ oscillator, gain });
+  });
+  audioNodes.push({ master });
+}
+
+function stopAmbient() {
+  if (!audioContext) return;
+  audioNodes.forEach((node) => {
+    if (node.gain) node.gain.gain.linearRampToValueAtTime(0, audioContext.currentTime + 0.5);
+    if (node.oscillator) node.oscillator.stop(audioContext.currentTime + 0.65);
+  });
+  audioNodes = [];
+}
+
+musicButton.addEventListener("click", async () => {
+  if (!playing) {
     startAmbient();
-    btn.classList.add('playing');
-  }else{
+    if (audioContext.state === "suspended") await audioContext.resume();
+    musicButton.classList.add("playing");
+  } else {
     stopAmbient();
-    btn.classList.remove('playing');
+    musicButton.classList.remove("playing");
   }
   playing = !playing;
 });
-function startAmbient(){
-  const master = audioCtx.createGain();
-  master.gain.value = 0.05;
-  master.connect(audioCtx.destination);
-  const chord = [220, 277.18, 329.63]; // gentle A major-ish pad
-  chord.forEach((freq, i) => {
-    const osc = audioCtx.createOscillator();
-    osc.type = 'sine';
-    osc.frequency.value = freq;
-    const g = audioCtx.createGain();
-    g.gain.value = 0;
-    osc.connect(g); g.connect(master);
-    osc.start();
-    g.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 1.5 + i*0.3);
-    nodes.push({osc, g});
-  });
-  nodes.push({master});
-}
-function stopAmbient(){
-  nodes.forEach(n => {
-    if(n.g){ n.g.gain.linearRampToValueAtTime(0, audioCtx.currentTime + 0.6); }
-    if(n.osc){ n.osc.stop(audioCtx.currentTime + 0.8); }
-  });
-  nodes = [];
-}

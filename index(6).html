@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Undangan pernikahan Achmad Amzal Maulana dan Suci Ainun A. Said, Agustus 2026.">
+  <meta name="theme-color" content="#1a0f05">
+  <title>Undangan Pernikahan — Achmad &amp; Suci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Yesteryear&family=Special+Elite&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg width="0" height="0" class="svg-filter" aria-hidden="true">
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"/>
+      <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.05 0"/>
+    </filter>
+  </svg>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
+  <div id="cover" aria-label="Sampul undangan">
+    <div class="postmark" aria-hidden="true">
+      <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52"/><circle cx="60" cy="60" r="44"/></svg>
+      <span class="postmark-text">BANTAENG · MAKASSAR · 2026</span>
+    </div>
+    <div class="cover-card">
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl"></div><div class="corner br"></div>
+      <div class="cover-sunburst" aria-hidden="true"></div>
+      <div class="eyebrow ribbon">The Wedding Of</div>
+      <div class="cover-names">Achmad <span>&amp;</span> Suci</div>
+      <div class="cover-date">06 &amp; 08 Agustus 2026</div>
+      <div class="cover-to">
+        Kepada Yth. Bapak/Ibu/Saudara/i
+        <b id="guestName">Tamu Undangan</b>
+      </div>
+      <button class="seal-btn" id="openBtn" type="button"><span>✦</span> Buka Undangan <span>✦</span></button>
+    </div>
+  </div>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="container reveal">
+        <div class="sunrays" aria-hidden="true"></div>
+        <div class="hero-ring">A&amp;S</div>
+        <div class="eyebrow">Bersama Keluarga Kami Mengundang</div>
+        <h1 class="hero-title">Achmad <span class="hero-amp">&amp;</span> Suci</h1>
+        <div class="divider"><span class="dash"></span><span class="mark">❦</span><span class="dash"></span></div>
+        <div class="hero-date">KAMIS, 06 AGUSTUS &amp; SABTU, 08 AGUSTUS 2026</div>
+        <p class="hero-subtitle">Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i untuk menghadiri rangkaian pernikahan kami.</p>
+
+        <div class="countdown-label">Menuju Hari Akad</div>
+        <div id="countdown" aria-label="Hitung mundur menuju hari akad">
+          <div class="cd-box"><div class="cd-num" id="cd-d">00</div><div class="cd-label">Hari</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-h">00</div><div class="cd-label">Jam</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-m">00</div><div class="cd-label">Menit</div></div>
+          <div class="cd-box"><div class="cd-num" id="cd-s">00</div><div class="cd-label">Detik</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament-divider" aria-hidden="true"></div>
+
+    <section id="quote">
+      <div class="container reveal">
+        <p><span class="dropcap">D</span>an di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup agar kamu merasa tenteram, dan dijadikan-Nya di antaramu rasa kasih dan sayang.</p>
+        <div class="src">— QS. AR-RUM : 21</div>
+      </div>
+    </section>
+
+    <div class="ornament-divider" aria-hidden="true"></div>
+
+    <section id="couple">
+      <div class="container reveal">
+        <div class="section-head">
+          <div class="eyebrow ribbon">Mempelai</div>
+          <h2>Kedua Mempelai</h2>
+        </div>
+        <div class="couple-grid">
+          <article class="person">
+            <div class="locket"><span>A</span></div>
+            <h3>Achmad Amzal Maulana, S.H.Int., M.I.P</h3>
+            <div class="role">Mempelai Pria</div>
+            <p>Putra dari</p>
+            <p class="parents"><strong>Dr. H. Ampauleng, SE., M.Si</strong><br><span>&amp;</span><br><strong>Dr. Hj. Salma Abdullah, SE., M.Si</strong></p>
+          </article>
+          <div class="couple-and" aria-hidden="true">&amp;</div>
+          <article class="person">
+            <div class="locket"><span>S</span></div>
+            <h3>Suci Ainun A. Said, S.Pi</h3>
+            <div class="role">Mempelai Wanita</div>
+            <p>Putri dari</p>
+            <p class="parents"><strong>Muhammad Adry Said, S.Sos</strong><br><span>&amp;</span><br><strong>Almh. Rahmatiah, S.Pd</strong></p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament-divider" aria-hidden="true"></div>
+
+    <section id="events">
+      <div class="container reveal">
+        <div class="section-head">
+          <div class="eyebrow ribbon">Save The Date</div>
+          <h2>Rangkaian Acara</h2>
+        </div>
+
+        <article class="ticket">
+          <div class="ticket-stamp">✦</div>
+          <div class="ticket-top"><h3>Akad Nikah</h3><span>ACARA 01</span></div>
+          <div class="ticket-row"><span class="ico">✦</span><div><b>Kamis, 06 Agustus 2026</b></div></div>
+          <div class="ticket-row"><span class="ico">⏱</span><div>Waktu akan diinformasikan kemudian</div></div>
+          <div class="ticket-row"><span class="ico">⌖</span><div><b>Balai Kartini</b><br>Kabupaten Bantaeng</div></div>
+          <div class="ticket-actions">
+            <a class="btn solid" id="cal-akad" href="#" target="_blank" rel="noopener">+ Tambah ke Kalender</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Balai+Kartini+Kabupaten+Bantaeng" target="_blank" rel="noopener">Buka Peta</a>
+          </div>
+          <div class="mapwrap"><iframe title="Peta Balai Kartini Kabupaten Bantaeng" loading="lazy" src="https://www.google.com/maps?q=Balai%20Kartini%20Kabupaten%20Bantaeng&amp;output=embed"></iframe></div>
+        </article>
+
+        <article class="ticket">
+          <div class="ticket-stamp">✦</div>
+          <div class="ticket-top"><h3>Resepsi</h3><span>ACARA 02</span></div>
+          <div class="ticket-row"><span class="ico">✦</span><div><b>Sabtu, 08 Agustus 2026</b></div></div>
+          <div class="ticket-row"><span class="ico">⏱</span><div>Waktu akan diinformasikan kemudian</div></div>
+          <div class="ticket-row"><span class="ico">⌖</span><div><b>Four Point by Sheraton Hotel</b><br>Kota Makassar</div></div>
+          <div class="ticket-actions">
+            <a class="btn solid" id="cal-resepsi" href="#" target="_blank" rel="noopener">+ Tambah ke Kalender</a>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Four+Point+by+Sheraton+Hotel+Makassar" target="_blank" rel="noopener">Buka Peta</a>
+          </div>
+          <div class="mapwrap"><iframe title="Peta Four Point by Sheraton Hotel Makassar" loading="lazy" src="https://www.google.com/maps?q=Four%20Point%20by%20Sheraton%20Hotel%20Makassar&amp;output=embed"></iframe></div>
+        </article>
+
+        <p class="event-note">Mohon menyimpan tanggal acara. Informasi waktu pelaksanaan dapat diperbarui langsung pada bagian acara setelah jadwal resmi ditentukan.</p>
+      </div>
+    </section>
+
+    <div class="ornament-divider" aria-hidden="true"></div>
+
+    <section id="gallery">
+      <div class="container reveal">
+        <div class="section-head">
+          <div class="eyebrow ribbon">Our Moments</div>
+          <h2>Galeri Achmad &amp; Suci</h2>
+          <p class="hint">Kumpulan momen bahagia menjelang hari pernikahan kami. Klik foto untuk melihat lebih besar.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <button class="gallery-item gallery-tall" type="button" data-full="assets/gallery-1.svg" aria-label="Buka foto galeri 1">
+            <img src="assets/gallery-1.svg" alt="Foto Achmad dan Suci 1" loading="lazy">
+            <span>Our Story</span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery-2.svg" aria-label="Buka foto galeri 2">
+            <img src="assets/gallery-2.svg" alt="Foto Achmad dan Suci 2" loading="lazy">
+            <span>Together</span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery-3.svg" aria-label="Buka foto galeri 3">
+            <img src="assets/gallery-3.svg" alt="Foto Achmad dan Suci 3" loading="lazy">
+            <span>Forever</span>
+          </button>
+          <button class="gallery-item gallery-wide" type="button" data-full="assets/gallery-4.svg" aria-label="Buka foto galeri 4">
+            <img src="assets/gallery-4.svg" alt="Foto Achmad dan Suci 4" loading="lazy">
+            <span>06 · 08 · 2026</span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery-5.svg" aria-label="Buka foto galeri 5">
+            <img src="assets/gallery-5.svg" alt="Foto Achmad dan Suci 5" loading="lazy">
+            <span>With Love</span>
+          </button>
+          <button class="gallery-item" type="button" data-full="assets/gallery-6.svg" aria-label="Buka foto galeri 6">
+            <img src="assets/gallery-6.svg" alt="Foto Achmad dan Suci 6" loading="lazy">
+            <span>A &amp; S</span>
+          </button>
+        </div>
+
+        <p class="gallery-note">Ganti file <code>gallery-1.svg</code> sampai <code>gallery-6.svg</code> di folder <code>assets</code> dengan foto asli, tanpa perlu mengubah kode HTML.</p>
+      </div>
+    </section>
+
+    <div class="ornament-divider" aria-hidden="true"></div>
+
+    <section id="blessing">
+      <div class="container reveal">
+        <div class="frame blessing-card">
+          <div class="eyebrow ribbon">Doa &amp; Restu</div>
+          <h2>Merupakan suatu kehormatan bagi kami</h2>
+          <p>Apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu kepada kami. Kehadiran Anda akan menjadi bagian yang indah dalam awal perjalanan rumah tangga kami.</p>
+          <div class="signature">Achmad <span>&amp;</span> Suci</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ornament-divider" aria-hidden="true"></div>
+
+    <section id="rsvp">
+      <div class="container reveal">
+        <div class="section-head">
+          <div class="eyebrow ribbon">Konfirmasi Kehadiran</div>
+          <h2>RSVP &amp; Ucapan</h2>
+          <p class="hint">Silakan isi konfirmasi kehadiran dan tuliskan doa terbaik untuk kedua mempelai.</p>
+        </div>
+
+        <form class="rsvp-form frame" id="rsvpForm">
+          <div class="field">
+            <label for="r-name">Nama</label>
+            <input id="r-name" name="name" type="text" autocomplete="name" placeholder="Nama lengkap" required>
+          </div>
+          <div class="field-grid">
+            <div class="field">
+              <label for="r-event">Acara</label>
+              <select id="r-event" name="event">
+                <option value="Akad Nikah">Akad Nikah</option>
+                <option value="Resepsi">Resepsi</option>
+                <option value="Keduanya">Keduanya</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="r-status">Kehadiran</label>
+              <select id="r-status" name="status">
+                <option value="Hadir">Insyaallah hadir</option>
+                <option value="Belum pasti">Belum dapat memastikan</option>
+                <option value="Tidak hadir">Mohon maaf tidak dapat hadir</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="r-msg">Ucapan &amp; Doa</label>
+            <textarea id="r-msg" name="message" placeholder="Tuliskan ucapan dan doa terbaik..."></textarea>
+          </div>
+          <button class="btn solid" type="submit">Kirim Konfirmasi</button>
+          <p id="rsvp-msg" role="status" aria-live="polite"></p>
+        </form>
+
+        <div class="wishes-wrap">
+          <div class="wishes-heading">
+            <h3>Ucapan Tamu</h3>
+            <button class="btn small" id="clearWishes" type="button" title="Menghapus ucapan yang tersimpan pada perangkat ini">Bersihkan</button>
+          </div>
+          <div id="wishlist"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container reveal">
+        <div class="footer-monogram">A&amp;S</div>
+        <div class="eyebrow">Terima Kasih</div>
+        <h2>Achmad &amp; Suci</h2>
+        <p>Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i, kami mengucapkan terima kasih.</p>
+        <div class="footer-date">06 · 08 · 2026</div>
+      </div>
+    </footer>
+  </main>
+
+  <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Tampilan foto galeri">
+    <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Tutup foto">×</button>
+    <img id="lightboxImage" src="" alt="Foto galeri diperbesar">
+    <p id="lightboxCaption"></p>
+  </div>
+
+  <button id="music-toggle" class="music-toggle" type="button" aria-label="Putar atau hentikan musik latar" title="Musik latar generatif">
+    <span class="music-icon">♫</span>
+    <span class="music-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
